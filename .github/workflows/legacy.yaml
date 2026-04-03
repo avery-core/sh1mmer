@@ -21,7 +21,7 @@ jobs:
           sudo apt install pv -y
           wget -q "https://dl.cros.download/files/${{ matrix.board }}/${{ matrix.board }}.zip"
           unzip ${{ matrix.board }}.zip
-          bash wax/wax.sh -i ${{ matrix.board }}.bin -p legacy
+          sudo bash wax/wax.sh -i ${{ matrix.board }}.bin -p legacy
           zip ${{ matrix.board }}-legacy.zip ${{ matrix.board }}.bin
 
       - name: upload
