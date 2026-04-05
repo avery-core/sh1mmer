@@ -109,6 +109,21 @@ main(){
 		[yY]) : ;;
 		*) echo "Abort."; exit 1 ;;
 	esac
+	BOARD=$(grep -m 1 "^CHROMEOS_RELEASE_BOARD=" /etc/lsb-release)
+	BOARD="${BOARD#*=}"
+	BOARD="${BOARD%-signed-*}"
+	case "$BOARD" in
+  	  nissa|rauru|skywalker)
+    	echo "Device supported."
+    	;;
+  	*)
+    	echo "Device unsupported."
+		read -r action
+		case "$action" in
+			[bypass]) : ;;
+			*) echo "Abort."; exit 1 ;;
+    ;;
+	esac
     checkcurrentstate
 }
 
