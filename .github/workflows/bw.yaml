@@ -27,7 +27,7 @@ jobs:
       - name: upload
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: legacy
+          tag_name: modern
           files: ${{ matrix.board }}-modern.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
